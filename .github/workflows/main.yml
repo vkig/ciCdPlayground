@@ -1,0 +1,31 @@
+name: CI
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  checks: write
+  pull-requests: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    # Github actions have Node and Yarn already set-up by default
+    # It is not clear which versions these are, 
+    # so it might be a good idea to specify them via an action like actions/setup-node@v4
+    - uses: actions/checkout@v2
+    - name: Install
+      run: yarn
+    - name: Unit tests
+      run: yarn test
+    - name: Build
+      run: yarn build
+    - name: Integration tests
+      run: yarn test:e2e
+    - name: Collect test reports
+      uses: EnricoMi/publish-unit-test-result-action@v1
+      if: always()
+      with:
+        files: 'reports/*.xml'
