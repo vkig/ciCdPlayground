@@ -20,7 +20,7 @@ new App({
 		],
 		// What do you like to do when you're not coding?
 		hobbies: [ 
-			'play [with my daughter|piano|(computer) games]', 
+			'play [with my daughter|piano|games]', 
 			'read a book',
 			'cook a meal',
 			'go on a hiking trip'
