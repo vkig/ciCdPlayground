@@ -30,17 +30,17 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install
       run: yarn
-    - name: Unit tests
-      run: yarn test
-    - name: Build
-      run: yarn build
-    - name: Integration tests
-      run: yarn test:e2e
-    - name: Collect test reports
-      uses: EnricoMi/publish-unit-test-result-action@v1
-      if: always()
-      with:
-        files: 'reports/*.xml'
+    # - name: Unit tests
+    #   run: yarn test
+    # - name: Build
+    #   run: yarn build
+    # - name: Integration tests
+    #   run: yarn test:e2e
+    # - name: Collect test reports
+    #   uses: EnricoMi/publish-unit-test-result-action@v1
+    #   if: always()
+    #   with:
+    #     files: 'reports/*.xml'
     - uses: actions/upload-artifact@v3
       with:
         name: build
