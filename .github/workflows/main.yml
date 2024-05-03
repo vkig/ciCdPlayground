@@ -38,6 +38,11 @@ jobs:
       if: always()
       with:
         files: 'reports/*.xml'
+    - uses: actions/upload-artifact@v3
+      with:
+        name: build
+        path: public
+        retention-days: 1
 
   deploy:
     runs-on: ubuntu-latest
