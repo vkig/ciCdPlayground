@@ -30,3 +30,8 @@ jobs:
       run: yarn build
     - name: Integration tests
       run: yarn test:e2e
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2.20.0
+      with:
+        files: "**/reports/**/*.xml"
+              
