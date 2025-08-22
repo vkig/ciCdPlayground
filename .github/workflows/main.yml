@@ -43,6 +43,7 @@ jobs:
       if: "${{ github.event.inputs.version != '' }}"
       uses: tvdias/github-tagger@v0.0.2
       with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{ github.event.inputs.version }}
         commit-sha: $GITHUB_SHA
           
