@@ -40,10 +40,10 @@ jobs:
       with:
         files: "**/reports/**/*.xml"
     - name: Tag commit with provided version
-      if: "${{ github.event.inputs.level != '' }}"
+      if: "${{ github.event.inputs.version != '' }}"
       uses: tvdias/github-tagger@v0.0.2
       with:
-        tag: ${{ github.event.inputs.level }}
+        tag: ${{ github.event.inputs.version }}
         commit-sha: $GITHUB_SHA
           
               
