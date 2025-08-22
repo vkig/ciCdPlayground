@@ -45,6 +45,5 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         tag: ${{ github.event.inputs.version }}
-        commit-sha: ${GITHUB_SHA}
           
               
