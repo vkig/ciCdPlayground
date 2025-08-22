@@ -4,7 +4,13 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-  
+  workflow_call:
+    inputs:
+      version:
+        description: 'Specify the version which will be used as a tag'
+        required: false
+        type: string
+
 permissions:
   checks: write
   pull-requests: write
@@ -14,7 +20,6 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -35,4 +40,11 @@ jobs:
       if: always()
       with:
         files: "**/reports/**/*.xml"
+    - name: Tag commit with provided version
+      if: "${{ github.event.inputs.level != '' }}"
+      uses: tvdias/github-tagger@v0.0.2
+      with:
+        tag: ${{ github.event.inputs.level }}
+        commit-sha: $GITHUB_SHA
+          
               
