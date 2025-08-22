@@ -41,9 +41,8 @@ jobs:
         files: "**/reports/**/*.xml"
     - name: Tag commit with provided version
       if: "${{ github.event.inputs.version != '' }}"
-      uses: tvdias/github-tagger@v0.0.2
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        tag: ${{ github.event.inputs.version }}
+      run: |
+        git tag ${{ github.event.inputs.version }}
+        git push origin ${{ github.event.inputs.version }}
           
               
