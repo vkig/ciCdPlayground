@@ -4,7 +4,6 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-  workflow_call:
     inputs:
       version:
         description: 'Specify the version which will be used as a tag'
